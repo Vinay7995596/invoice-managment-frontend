@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import FormCreate from './components/createForm';
 import Invoice from './components/form';
@@ -10,7 +9,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path='login' element={<Loginpage />}/>
+        <Route path='' element={<Loginpage />}/>
         <Route path='form' element={<Invoice/>}/>
         <Route path='create-form' element={<FormCreate/>}/>
       </Routes>

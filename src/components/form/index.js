@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "./index.css";
 
 const Invoice = () => {
   const [data, setData] = useState([]);
@@ -17,9 +18,10 @@ const Invoice = () => {
   useEffect(() => {
     const fetchingDetails = async () => {
       try {
-        const response = await fetch("http://localhost:5500/fetching-details");
+        const response = await fetch("https://invoice-managment-backend.onrender.com/fetching-details");
         if (response.ok) {
           const result = await response.json();
+          console.log(result.response)
           setData(result.response);
         }
       } catch (e) {
@@ -31,8 +33,15 @@ const Invoice = () => {
 
   return (
     <>
-      <div>This is invoice page</div>
-      <button onClick={formadding}>Add</button>
+      <div className="heading-invoice">
+        <h2>Invoice Details</h2>
+      </div>
+      <div className="button-add-style"> 
+      <button onClick={formadding} className="button-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+</svg>Add</button>
+      </div>
+      
       <table>
         <thead>
           <tr>
@@ -69,7 +78,11 @@ const Invoice = () => {
                     items.amountStatus
                   )}
                 </td>
-                <button onClick={() => updateButton(items._id)}>Update</button>
+                <td>
+                  <button className="button-34" onClick={() => updateButton(items._id)}>
+                    Update
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>
