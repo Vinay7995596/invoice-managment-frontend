@@ -98,7 +98,7 @@ const FormCreate = () => {
         </div>
         <div className="input-container">
           <label className="placeholder">Status</label>
-          <select   className="input" onChange={amountStatusChange}>
+          <select className="input" onChange={amountStatusChange}>
             <option value="pending">Pending</option>
             <option value="paid">Paid</option>
             <option value="unpaid">Unpaid</option>
